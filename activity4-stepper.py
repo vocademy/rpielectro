@@ -1,3 +1,6 @@
+#Stepper program by Simon Monk
+#Expecting Python 3
+
 import RPi.GPIO as GPIO
 import time
 
@@ -46,9 +49,14 @@ def setStep(w1, w2, w3, w4):
   GPIO.output(coil_B_1_pin, w3)
   GPIO.output(coil_B_2_pin, w4)
 
-while True:
-  delay = input("Delay between steps (milliseconds)?")
-  steps = input("How many steps forward? ")
-  forward(int(delay) / 1000.0, int(steps))
-  steps = input("How many steps backwards? ")
-  backwards(int(delay) / 1000.0, int(steps))
+try:
+    while True:
+        delay = input("Delay between steps (milliseconds)?")
+        steps = input("How many sets of steps forward? ")
+        forward(int(delay) / 1000.0, int(steps))
+        steps = input("How many sets of steps backwards? ")
+        backwards(int(delay) / 1000.0, int(steps))
+except KeyboardInterrupt:
+    pass
+finally:
+    GPIO.cleanup()
