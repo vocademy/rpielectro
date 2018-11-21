@@ -1,11 +1,11 @@
 # Original gui_slider written by Simon Monk
 # Updates and comments by Brian Cox
-# Updated 11-17-18
-# Expecting Python 3
+# Updated 11-20-18
+# Expects Python 3
 
 from tkinter import *            # Loads Python's GUI package
 import RPi.GPIO as GPIO          # Loads the module to support for the RPi's GPIO and gives it the name GPIO
-import time                      # Loads support Python time support
+import time                      # Loads Python time support
 
 GPIO.setmode(GPIO.BCM)           # Sets board numbersing using the Broadcom SOC numbering scheme. As opposed to BOARD which refers to the pin numbers on the P1 header of the RPi's board
 GPIO.setup(24, GPIO.OUT)         # Sets GPIO pin 24 as an output
@@ -28,7 +28,7 @@ class App:
     def update(self, duty):
         pwm.ChangeDutyCycle(float(duty))          # Changes duty cycle of PWM based on the position of the slider
 
-    def Exit(self):
+    def Exit(self):                               # Creates exit button which will clean the GPIO pins and close the window
         GPIO.cleanup()
         root.destroy()
 

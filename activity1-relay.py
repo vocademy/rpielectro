@@ -1,5 +1,5 @@
 #Basic on/off relay control
-#Expecting Python 3
+#Expects Python 3
 import RPi.GPIO as GPIO          #Loads the module to support for the RPi's GPIO and gives it the name GPIO
 GPIO.setmode(GPIO.BCM)           #Sets board numbersing using the Broadcom SOC numbering scheme. As opposed to BOARD which refers to the pin numbers on the P1 header of the RPi's board
 GPIO.setup(24,GPIO.OUT)          #Sets GPIO pin 24 as an output   
