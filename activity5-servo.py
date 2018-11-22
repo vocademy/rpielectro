@@ -3,8 +3,7 @@
 # Updated 11-6-18
 # Expects Python 3
 
-
-from Tkinter import *       #Load Python's GUI package
+from tkinter import *       #Load Python's GUI package
 import RPi.GPIO as GPIO     #Load module to support RPi's GPIO pins and create object called GPIO
 import time                 #Load module that allows RPi to work with time
 
@@ -22,7 +21,6 @@ class App:
               orient=HORIZONTAL, command=self.update)
         scale.grid(row=0)
 
-
     def update(self, angle):
         duty = float(angle) / 10.0 + 2.5   
         pwm.ChangeDutyCycle(duty)     # Changes duty cycle of PWM based on the position of the slider, which moves the servo
@@ -31,9 +29,9 @@ class App:
         GPIO.cleanup()
         root.destroy()
 
-## Sets parmeters for the main window
+# Sets parmeters for the main window
 root = Tk()
 root.wm_title('Servo Control')
 app = App(root)
-root.geometry("200x80+0+0")
+root.geometry("400x80+0+0")
 root.mainloop()
