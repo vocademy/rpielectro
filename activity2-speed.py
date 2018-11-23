@@ -7,7 +7,7 @@ from tkinter import *            # Loads Python's GUI package
 import RPi.GPIO as GPIO          # Loads the module to support for the RPi's GPIO and gives it the name GPIO
 import time                      # Loads Python time support
 
-GPIO.setmode(GPIO.BCM)           # Sets board numbersing using the Broadcom SOC numbering scheme. As opposed to BOARD which refers to the pin numbers on the P1 header of the RPi's board
+GPIO.setmode(GPIO.BCM)           # Sets board numbering using the Broadcom SOC numbering scheme. As opposed to BOARD which refers to the pin numbers on the P1 header of the RPi's board
 GPIO.setup(24, GPIO.OUT)         # Sets GPIO pin 24 as an output
 pwm = GPIO.PWM(24, 500)          # Loads PWM support on pin 24 and sets the frequency at 500Hz
 pwm.start(0)                     # Starts PWM on pin 24 and sets the duty cycle to 0. (range is 0 to 100)
